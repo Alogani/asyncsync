@@ -19,7 +19,7 @@ proc new*(T: type Event): T
 proc wait*(self: Event): Future[void]
 proc trigger*(self: Event)
 proc isTriggered*(self: Event): bool
-proc clear*(self: var Event)
+proc clear*(self: Event)
 proc addCallback*(self: Event; cb: proc () {.closure, gcsafe.}) {.borrow.}
 proc clearCallbacks*(self: Event) {.borrow.}
 converter toBool*(self: Event): bool
@@ -46,7 +46,7 @@ proc trigger*(self: Event) =
 proc isTriggered*(self: Event): bool =
     Future[void](self).finished
 
-proc clear*(self: var Event) =
+proc clear*(self: Event) =
     if Future[void](self).finished:
         Future[void](self).clean()
 
