@@ -7,9 +7,8 @@ privateAccess(FutureBase)
 
 type
     Event* = distinct Future[void]
-        ## Waiters wakening can be unordered
+        ## Waiters wakening can be unordered (According to asyncdispatch doc: in the order of await macro call)
         ## For ordered events, cleaner method is to use in combination with a lock
-        ## According to asyncdispatch doc: in the order of await macro call
 
 
 proc clean*[T](fut: Future[T])
@@ -37,6 +36,7 @@ proc wait*(self: Event): Future[void] =
     Future[void](self)
 
 template await*(self: Event) =
+    ## if called after trigger, ensure all preceding waiters have complete
     await self.wait()
 
 proc trigger*(self: Event) =
