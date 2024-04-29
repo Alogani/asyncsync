@@ -1,4 +1,4 @@
-# Asynsync
+# Asyncsync
 
 Asynchronous primitives
 
