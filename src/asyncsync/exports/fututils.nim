@@ -31,3 +31,8 @@ proc then*[T2](fut: Future[void], cb: proc(): Future[T2]): Future[T2] {.async.} 
 proc then*[T1, T2](fut: Future[T1], cb: proc(data: T1): Future[T2]): Future[T2] {.async.} =
     ## Add callback in a synchronous way (awaitable)
     await cb(await fut)
+
+proc then*[T1, T2](fut: Future[T1], cb: proc(): Future[T2]): Future[T2] {.async.} =
+    ## Add callback in a synchronous way (awaitable)
+    discard await fut
+    await cb()
