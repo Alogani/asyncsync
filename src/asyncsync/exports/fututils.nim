@@ -22,3 +22,12 @@ proc checkWithCancel*(fut: Future[void], cancelFut: Future[void]): Future[bool] 
             return true
         else:
             return false
+
+proc then*[T2](fut: Future[void], cb: proc(): Future[T2]): Future[T2] {.async.} =
+    ## Add callback in a synchronous way (awaitable)
+    await fut
+    await cb()
+
+proc then*[T1, T2](fut: Future[T1], cb: proc(data: T1): Future[T2]): Future[T2] {.async.} =
+    ## Add callback in a synchronous way (awaitable)
+    await cb(await fut)
