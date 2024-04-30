@@ -2,8 +2,6 @@
 
 Asynchronous primitives
 
-_This project is *not* related to [chronos/asyncsync](https://github.com/status-im/nim-chronos/blob/master/chronos/asyncsync.nim)_
-
 ## Features
 
 - Non blocking: most operations can be cancelled using any future (like a timer)
@@ -64,4 +62,4 @@ Please see source code for each object you need to see its API
 
 ## Before using it
 - Unstable API : How you use asyncsync is susceptible to change. It could occur to serve [asyncproc](https://github.com/Alogani/asyncproc) or [asyncio](https://github.com/Alogani/asyncio) library development. _v1.0.0 is programmed to be released as soon as possible_ 
-- Only support one async backend: std/asyncdispatch (incompatible with chronos)
+- Only support one async backend: std/asyncdispatch (_This project is *not* related to [chronos/asyncsync](https://github.com/status-im/nim-chronos/blob/master/chronos/asyncsync.nim)_)
