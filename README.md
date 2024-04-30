@@ -2,6 +2,8 @@
 
 Asynchronous primitives
 
+_This project is *not* related to [chronos/asyncsync](https://github.com/status-im/nim-chronos/blob/master/chronos/asyncsync.nim)_
+
 ## Features
 
 - Non blocking: most operations can be cancelled using any future (like a timer)
