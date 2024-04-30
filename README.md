@@ -1,6 +1,6 @@
 # Asyncsync
 
-Asynchronous primitives
+Asynchronous primitives working on std/asyncdispatch
 
 ## Features
 
