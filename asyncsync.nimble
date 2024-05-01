@@ -25,4 +25,5 @@ task genDocs, "Build the docs":
 task pushSuite, "Tests -> genDocs -> git push":
     exec("nimble test")
     genDocsTask()
+    exec("git commit htmldocs/** -m 'Update docs'")
     exec("git push")
