@@ -1,0 +1,23 @@
+nimTitle	lock	_._/src/asyncsync/lock.html	module src/asyncsync/lock		0
+nim	Lock	_._/src/asyncsync/lock.html#Lock	type Lock		7
+nim	new	_._/src/asyncsync/lock.html#new,typeLock	proc new(T: type Lock): LockImpl		20
+nim	acquire	_._/src/asyncsync/lock.html#acquire,Lock,Future[void]	proc acquire(self: Lock; cancelFut: Future[void]): Future[bool]		21
+nim	acquire	_._/src/asyncsync/lock.html#acquire.e,Lock	method acquire(self: Lock): Future[void]		22
+nim	release	_._/src/asyncsync/lock.html#release.e,Lock	method release(self: Lock)		23
+nim	isLocked	_._/src/asyncsync/lock.html#isLocked.e,Lock	method isLocked(self: Lock): bool		24
+nim	new	_._/src/asyncsync/lock.html#new,typeLockImpl	proc new(T: type LockImpl): T:type		26
+nim	acquire	_._/src/asyncsync/lock.html#acquire.e,LockImpl	method acquire(self: LockImpl): Future[void]		27
+nim	release	_._/src/asyncsync/lock.html#release.e,LockImpl	method release(self: LockImpl)		28
+nim	isLocked	_._/src/asyncsync/lock.html#isLocked.e,LockImpl	method isLocked(self: LockImpl): bool		29
+nim	withLock	_._/src/asyncsync/lock.html#withLock.t,Lock,untyped	template withLock(self: Lock; body: untyped): untyped		32
+nim	withLock	_._/src/asyncsync/lock.html#withLock.t,Lock,Future[void],untyped	template withLock(self: Lock; cancelFut: Future[void]; body: untyped): untyped		40
+nim	merge	_._/src/asyncsync/lock.html#merge,varargs[Lock]	proc merge(locks: varargs[Lock]): LockList		83
+nim	`and`	_._/src/asyncsync/lock.html#and,Lock,Lock	proc `and`(a, b: Lock): LockList		84
+nim	acquire	_._/src/asyncsync/lock.html#acquire.e,LockList	method acquire(self: LockList): Future[void]		85
+nim	release	_._/src/asyncsync/lock.html#release.e,LockList	method release(self: LockList)		86
+nim	isLocked	_._/src/asyncsync/lock.html#isLocked.e,LockList	method isLocked(self: LockList): bool		87
+nimgrp	new	_._/src/asyncsync/lock.html#new-procs-all	proc		20
+nimgrp	release	_._/src/asyncsync/lock.html#release-methods-all	method		23
+nimgrp	islocked	_._/src/asyncsync/lock.html#isLocked-methods-all	method		24
+nimgrp	acquire	_._/src/asyncsync/lock.html#acquire-methods-all	method		22
+nimgrp	withlock	_._/src/asyncsync/lock.html#withLock-templates-all	template		32

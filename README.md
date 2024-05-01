@@ -58,7 +58,8 @@ waitFor main()
 ```
 
 ### To go further
-Please see source code for each object you need to see its API
+Full docs can be browsered [here](https://htmlpreview.github.io/?https://github.com/Alogani/asyncsync/blob/main/htmldocs/asyncsync.html)
+
 
 ## Before using it
 - Unstable API : How you use asyncsync is susceptible to change. It could occur to serve [asyncproc](https://github.com/Alogani/asyncproc) or [asyncio](https://github.com/Alogani/asyncio) library development. _v1.0.0 is programmed to be released as soon as possible_ 

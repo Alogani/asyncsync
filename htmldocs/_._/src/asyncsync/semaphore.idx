@@ -1,0 +1,6 @@
+nimTitle	semaphore	_._/src/asyncsync/semaphore.html	module src/asyncsync/semaphore		0
+nim	Semaphore	_._/src/asyncsync/semaphore.html#Semaphore	type Semaphore		5
+nim	new	_._/src/asyncsync/semaphore.html#new,typeSemaphore,int	proc new(T: type Semaphore; value: int): T:type		10
+nim	acquire	_._/src/asyncsync/semaphore.html#acquire.e,Semaphore	method acquire(self: Semaphore): Future[void]		11
+nim	release	_._/src/asyncsync/semaphore.html#release.e,Semaphore	method release(self: Semaphore)		12
+nim	isLocked	_._/src/asyncsync/semaphore.html#isLocked.e,Semaphore	method isLocked(self: Semaphore): bool		13
