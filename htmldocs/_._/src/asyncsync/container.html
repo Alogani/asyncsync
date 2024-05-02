@@ -67,8 +67,8 @@
   <li><a class="reference" href="#acquire%2CContainer%5BT%5D" title="acquire[T](self: Container[T]): Future[T]">acquire[T](self: Container[T]): Future[T]</a></li>
 
 </ul>
-<ul class="simple nested-toc-section">isLocked
-  <li><a class="reference" href="#isLocked%2CContainer%5BT%5D" title="isLocked[T](self: Container[T]): bool">isLocked[T](self: Container[T]): bool</a></li>
+<ul class="simple nested-toc-section">locked
+  <li><a class="reference" href="#locked%2CContainer%5BT%5D" title="locked[T](self: Container[T]): bool">locked[T](self: Container[T]): bool</a></li>
 
 </ul>
 <ul class="simple nested-toc-section">new
@@ -130,7 +130,7 @@
   <dl class="item">
     <div id="acquire-procs-all">
   <div id="acquire,Container[T]">
-  <dt><pre><span class="Keyword">proc</span> <a href="#acquire%2CContainer%5BT%5D"><span class="Identifier">acquire</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="container.html#Container"><span class="Identifier">Container</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">Future</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span></pre></dt>
+  <dt><pre><span class="Keyword">proc</span> <a href="#acquire%2CContainer%5BT%5D"><span class="Identifier">acquire</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="container.html#Container"><span class="Identifier">Container</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">Future</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">stackTrace</span><span class="Other">:</span> <span class="DecNumber">false</span></span>.}</pre></dt>
   <dd>
     
     
@@ -139,9 +139,9 @@
 </div>
 
 </div>
-<div id="isLocked-procs-all">
-  <div id="isLocked,Container[T]">
-  <dt><pre><span class="Keyword">proc</span> <a href="#isLocked%2CContainer%5BT%5D"><span class="Identifier">isLocked</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="container.html#Container"><span class="Identifier">Container</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span></pre></dt>
+<div id="locked-procs-all">
+  <div id="locked,Container[T]">
+  <dt><pre><span class="Keyword">proc</span> <a href="#locked%2CContainer%5BT%5D"><span class="Identifier">locked</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="container.html#Container"><span class="Identifier">Container</span></a><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span></pre></dt>
   <dd>
     
     
@@ -199,7 +199,7 @@
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2024-05-01 10:50:39 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2024-05-02 18:22:14 UTC</small>
       </div>
     </div>
   </div>

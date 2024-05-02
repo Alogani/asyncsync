@@ -1,7 +1,7 @@
 nimTitle	container	_._/src/asyncsync/container.html	module src/asyncsync/container		0
 nim	Container	_._/src/asyncsync/container.html#Container	type Container		5
-nim	new	_._/src/asyncsync/container.html#new,typeContainer[T],T,Lock	proc new[T](O: type Container[T]; resource: T; lock: Lock = Lock.new()): O:type		11
-nim	acquire	_._/src/asyncsync/container.html#acquire,Container[T]	proc acquire[T](self: Container[T]): Future[T]		12
-nim	release	_._/src/asyncsync/container.html#release,Container[T]	proc release[T](self: Container[T])		13
-nim	isLocked	_._/src/asyncsync/container.html#isLocked,Container[T]	proc isLocked[T](self: Container[T]): bool		14
-nim	with	_._/src/asyncsync/container.html#with.t,Container[T],,untyped	template with[T](self: Container[T]; resource: out T; body: untyped): untyped		17
+nim	with	_._/src/asyncsync/container.html#with.t,Container[T],,untyped	template with[T](self: Container[T]; resource: out T; body: untyped): untyped		11
+nim	new	_._/src/asyncsync/container.html#new,typeContainer[T],T,Lock	proc new[T](O: type Container[T]; resource: T; lock: Lock = Lock.new()): O:type		17
+nim	acquire	_._/src/asyncsync/container.html#acquire,Container[T]	proc acquire[T](self: Container[T]): Future[T]		20
+nim	locked	_._/src/asyncsync/container.html#locked,Container[T]	proc locked[T](self: Container[T]): bool		24
+nim	release	_._/src/asyncsync/container.html#release,Container[T]	proc release[T](self: Container[T])		27

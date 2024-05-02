@@ -1,13 +1,11 @@
 nimTitle	event	_._/src/asyncsync/event.html	module src/asyncsync/event		0
 nim	Event	_._/src/asyncsync/event.html#Event	type Event		9
 nim	clean	_._/src/asyncsync/event.html#clean,Future[T]	proc clean[T](fut: Future[T])		14
-nim	new	_._/src/asyncsync/event.html#new,typeEvent	proc new(T: type Event): T:type		17
-nim	wait	_._/src/asyncsync/event.html#wait,Event	proc wait(self: Event): Future[void]		18
-nim	trigger	_._/src/asyncsync/event.html#trigger,Event	proc trigger(self: Event)		19
-nim	isTriggered	_._/src/asyncsync/event.html#isTriggered,Event	proc isTriggered(self: Event): bool		20
-nim	clear	_._/src/asyncsync/event.html#clear,Event	proc clear(self: Event)		21
-nim	addCallback	_._/src/asyncsync/event.html#addCallback,Event,proc)	proc addCallback(self: Event; cb: proc () {.closure, gcsafe.})		22
-nim	clearCallbacks	_._/src/asyncsync/event.html#clearCallbacks,Event	proc clearCallbacks(self: Event)		23
-nim	toBool	_._/src/asyncsync/event.html#toBool.c,Event	converter toBool(self: Event): bool		24
-nim	await	_._/src/asyncsync/event.html#await.t,Event	template await(self: Event)		38
-nim	toFut	_._/src/asyncsync/event.html#toFut.c,Event	converter toFut(self: Event): Future[void]		53
+nim	toBool	_._/src/asyncsync/event.html#toBool.c,Event	converter toBool(self: Event): bool		16
+nim	toFut	_._/src/asyncsync/event.html#toFut.c,Event	converter toFut(self: Event): Future[void]		17
+nim	clear	_._/src/asyncsync/event.html#clear,Event	proc clear(self: Event)		18
+nim	new	_._/src/asyncsync/event.html#new,typeEvent	proc new(T: type Event): T:type		19
+nim	trigger	_._/src/asyncsync/event.html#trigger,Event	proc trigger(self: Event)		20
+nim	triggered	_._/src/asyncsync/event.html#triggered,Event	proc triggered(self: Event): bool		21
+nim	wait	_._/src/asyncsync/event.html#wait,Event	proc wait(self: Event): Future[void]		22
+nim	await	_._/src/asyncsync/event.html#await.t,Event	template await(self: Event)		25

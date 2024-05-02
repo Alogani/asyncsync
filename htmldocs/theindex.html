@@ -40,10 +40,6 @@
           <li><a class="reference external"
           data-doc-search-tag="semaphore: method acquire(self: Semaphore): Future[void]" href="_._/src/asyncsync/semaphore.html#acquire.e%2CSemaphore">semaphore: method acquire(self: Semaphore): Future[void]</a></li>
           </ul></dd>
-<dt><a name="addCallback" href="#addCallback"><span>addCallback:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="event: proc addCallback(self: Event; cb: proc () {.closure, gcsafe.})" href="_._/src/asyncsync/event.html#addCallback%2CEvent%2Cproc%29">event: proc addCallback(self: Event; cb: proc () {.closure, gcsafe.})</a></li>
-          </ul></dd>
 <dt><a name="any" href="#any"><span>any:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="fututils: proc any(l: varargs[Future[void]]): Future[void]" href="_._/src/asyncsync/exports/fututils.html#any%2Cvarargs%5BFuture%5Bvoid%5D%5D">fututils: proc any(l: varargs[Future[void]]): Future[void]</a></li>
@@ -66,10 +62,6 @@
           <li><a class="reference external"
           data-doc-search-tag="listener: proc clear(self: Listener)" href="_._/src/asyncsync/listener.html#clear%2CListener">listener: proc clear(self: Listener)</a></li>
           </ul></dd>
-<dt><a name="clearCallbacks" href="#clearCallbacks"><span>clearCallbacks:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="event: proc clearCallbacks(self: Event)" href="_._/src/asyncsync/event.html#clearCallbacks%2CEvent">event: proc clearCallbacks(self: Event)</a></li>
-          </ul></dd>
 <dt><a name="Container" href="#Container"><span>Container:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="container: type Container" href="_._/src/asyncsync/container.html#Container">container: type Container</a></li>
@@ -77,28 +69,6 @@
 <dt><a name="Event" href="#Event"><span>Event:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="event: type Event" href="_._/src/asyncsync/event.html#Event">event: type Event</a></li>
-          </ul></dd>
-<dt><a name="isListening" href="#isListening"><span>isListening:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="listener: proc isListening(self: Listener): bool" href="_._/src/asyncsync/listener.html#isListening%2CListener">listener: proc isListening(self: Listener): bool</a></li>
-          </ul></dd>
-<dt><a name="isLocked" href="#isLocked"><span>isLocked:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="container: proc isLocked[T](self: Container[T]): bool" href="_._/src/asyncsync/container.html#isLocked%2CContainer%5BT%5D">container: proc isLocked[T](self: Container[T]): bool</a></li>
-          <li><a class="reference external"
-          data-doc-search-tag="lock: method isLocked(self: Lock): bool" href="_._/src/asyncsync/lock.html#isLocked.e%2CLock">lock: method isLocked(self: Lock): bool</a></li>
-          <li><a class="reference external"
-          data-doc-search-tag="lock: method isLocked(self: LockImpl): bool" href="_._/src/asyncsync/lock.html#isLocked.e%2CLockImpl">lock: method isLocked(self: LockImpl): bool</a></li>
-          <li><a class="reference external"
-          data-doc-search-tag="lock: method isLocked(self: LockList): bool" href="_._/src/asyncsync/lock.html#isLocked.e%2CLockList">lock: method isLocked(self: LockList): bool</a></li>
-          <li><a class="reference external"
-          data-doc-search-tag="semaphore: method isLocked(self: Semaphore): bool" href="_._/src/asyncsync/semaphore.html#isLocked.e%2CSemaphore">semaphore: method isLocked(self: Semaphore): bool</a></li>
-          </ul></dd>
-<dt><a name="isTriggered" href="#isTriggered"><span>isTriggered:</span></a></dt><dd><ul class="simple">
-<li><a class="reference external"
-          data-doc-search-tag="event: proc isTriggered(self: Event): bool" href="_._/src/asyncsync/event.html#isTriggered%2CEvent">event: proc isTriggered(self: Event): bool</a></li>
-          <li><a class="reference external"
-          data-doc-search-tag="listener: proc isTriggered(self: Listener): bool" href="_._/src/asyncsync/listener.html#isTriggered%2CListener">listener: proc isTriggered(self: Listener): bool</a></li>
           </ul></dd>
 <dt><a name="listen" href="#listen"><span>listen:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -110,9 +80,25 @@
 <li><a class="reference external"
           data-doc-search-tag="listener: type Listener" href="_._/src/asyncsync/listener.html#Listener">listener: type Listener</a></li>
           </ul></dd>
+<dt><a name="listening" href="#listening"><span>listening:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="listener: proc listening(self: Listener): bool" href="_._/src/asyncsync/listener.html#listening%2CListener">listener: proc listening(self: Listener): bool</a></li>
+          </ul></dd>
 <dt><a name="Lock" href="#Lock"><span>Lock:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="lock: type Lock" href="_._/src/asyncsync/lock.html#Lock">lock: type Lock</a></li>
+          </ul></dd>
+<dt><a name="locked" href="#locked"><span>locked:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="container: proc locked[T](self: Container[T]): bool" href="_._/src/asyncsync/container.html#locked%2CContainer%5BT%5D">container: proc locked[T](self: Container[T]): bool</a></li>
+          <li><a class="reference external"
+          data-doc-search-tag="lock: method locked(self: Lock): bool" href="_._/src/asyncsync/lock.html#locked.e%2CLock">lock: method locked(self: Lock): bool</a></li>
+          <li><a class="reference external"
+          data-doc-search-tag="lock: method locked(self: LockImpl): bool" href="_._/src/asyncsync/lock.html#locked.e%2CLockImpl">lock: method locked(self: LockImpl): bool</a></li>
+          <li><a class="reference external"
+          data-doc-search-tag="lock: method locked(self: LockList): bool" href="_._/src/asyncsync/lock.html#locked.e%2CLockList">lock: method locked(self: LockList): bool</a></li>
+          <li><a class="reference external"
+          data-doc-search-tag="semaphore: method locked(self: Semaphore): bool" href="_._/src/asyncsync/semaphore.html#locked.e%2CSemaphore">semaphore: method locked(self: Semaphore): bool</a></li>
           </ul></dd>
 <dt><a name="merge" href="#merge"><span>merge:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
@@ -174,6 +160,12 @@
           <li><a class="reference external"
           data-doc-search-tag="listener: proc trigger(self: Listener)" href="_._/src/asyncsync/listener.html#trigger%2CListener">listener: proc trigger(self: Listener)</a></li>
           </ul></dd>
+<dt><a name="triggered" href="#triggered"><span>triggered:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="event: proc triggered(self: Event): bool" href="_._/src/asyncsync/event.html#triggered%2CEvent">event: proc triggered(self: Event): bool</a></li>
+          <li><a class="reference external"
+          data-doc-search-tag="listener: proc triggered(self: Listener): bool" href="_._/src/asyncsync/listener.html#triggered%2CListener">listener: proc triggered(self: Listener): bool</a></li>
+          </ul></dd>
 <dt><a name="wait" href="#wait"><span>wait:</span></a></dt><dd><ul class="simple">
 <li><a class="reference external"
           data-doc-search-tag="event: proc wait(self: Event): Future[void]" href="_._/src/asyncsync/event.html#wait%2CEvent">event: proc wait(self: Event): Future[void]</a></li>
@@ -194,7 +186,7 @@
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2024-05-01 10:50:39 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2024-05-02 18:22:14 UTC</small>
       </div>
     </div>
   </div>

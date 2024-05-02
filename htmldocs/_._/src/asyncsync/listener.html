@@ -67,17 +67,13 @@
   <li><a class="reference" href="#clear%2CListener" title="clear(self: Listener)">clear(self: Listener)</a></li>
 
 </ul>
-<ul class="simple nested-toc-section">isListening
-  <li><a class="reference" href="#isListening%2CListener" title="isListening(self: Listener): bool">isListening(self: Listener): bool</a></li>
-
-</ul>
-<ul class="simple nested-toc-section">isTriggered
-  <li><a class="reference" href="#isTriggered%2CListener" title="isTriggered(self: Listener): bool">isTriggered(self: Listener): bool</a></li>
-
-</ul>
 <ul class="simple nested-toc-section">listen
   <li><a class="reference" href="#listen%2CListener" title="listen(self: Listener): Future[void]">listen(self: Listener): Future[void]</a></li>
 <li><a class="reference" href="#listen%2CListener%2CFuture%5Bvoid%5D" title="listen(self: Listener; fut: Future[void])">listen(self: Listener; fut: Future[void])</a></li>
+
+</ul>
+<ul class="simple nested-toc-section">listening
+  <li><a class="reference" href="#listening%2CListener" title="listening(self: Listener): bool">listening(self: Listener): bool</a></li>
 
 </ul>
 <ul class="simple nested-toc-section">new
@@ -86,6 +82,10 @@
 </ul>
 <ul class="simple nested-toc-section">trigger
   <li><a class="reference" href="#trigger%2CListener" title="trigger(self: Listener)">trigger(self: Listener)</a></li>
+
+</ul>
+<ul class="simple nested-toc-section">triggered
+  <li><a class="reference" href="#triggered%2CListener" title="triggered(self: Listener): bool">triggered(self: Listener): bool</a></li>
 
 </ul>
 <ul class="simple nested-toc-section">wait
@@ -156,28 +156,6 @@
 </div>
 
 </div>
-<div id="isListening-procs-all">
-  <div id="isListening,Listener">
-  <dt><pre><span class="Keyword">proc</span> <a href="#isListening%2CListener"><span class="Identifier">isListening</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="listener.html#Listener"><span class="Identifier">Listener</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
-  <dd>
-    
-    
-    
-  </dd>
-</div>
-
-</div>
-<div id="isTriggered-procs-all">
-  <div id="isTriggered,Listener">
-  <dt><pre><span class="Keyword">proc</span> <a href="#isTriggered%2CListener"><span class="Identifier">isTriggered</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="listener.html#Listener"><span class="Identifier">Listener</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
-  <dd>
-    
-    
-    
-  </dd>
-</div>
-
-</div>
 <div id="listen-procs-all">
   <div id="listen,Listener">
   <dt><pre><span class="Keyword">proc</span> <a href="#listen%2CListener"><span class="Identifier">listen</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="listener.html#Listener"><span class="Identifier">Listener</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">Future</span><span class="Other">[</span><span class="Identifier">void</span><span class="Other">]</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">Exception</span><span class="Other">]</span><span class="Other">,</span>
@@ -189,8 +167,19 @@
   </dd>
 </div>
 <div id="listen,Listener,Future[void]">
-  <dt><pre><span class="Keyword">proc</span> <a href="#listen%2CListener%2CFuture%5Bvoid%5D"><span class="Identifier">listen</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="listener.html#Listener"><span class="Identifier">Listener</span></a><span class="Other">;</span> <span class="Identifier">fut</span><span class="Other">:</span> <span class="Identifier">Future</span><span class="Other">[</span><span class="Identifier">void</span><span class="Other">]</span><span class="Other">)</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">IOError</span><span class="Other">,</span> <span class="Identifier">Exception</span><span class="Other">]</span><span class="Other">,</span>
+  <dt><pre><span class="Keyword">proc</span> <a href="#listen%2CListener%2CFuture%5Bvoid%5D"><span class="Identifier">listen</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="listener.html#Listener"><span class="Identifier">Listener</span></a><span class="Other">;</span> <span class="Identifier">fut</span><span class="Other">:</span> <span class="Identifier">Future</span><span class="Other">[</span><span class="Identifier">void</span><span class="Other">]</span><span class="Other">)</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">Exception</span><span class="Other">,</span> <span class="Identifier">IOError</span><span class="Other">]</span><span class="Other">,</span>
     <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">RootEffect</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+  <dd>
+    
+    
+    
+  </dd>
+</div>
+
+</div>
+<div id="listening-procs-all">
+  <div id="listening,Listener">
+  <dt><pre><span class="Keyword">proc</span> <a href="#listening%2CListener"><span class="Identifier">listening</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="listener.html#Listener"><span class="Identifier">Listener</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
   <dd>
     
     
@@ -212,8 +201,19 @@
 </div>
 <div id="trigger-procs-all">
   <div id="trigger,Listener">
-  <dt><pre><span class="Keyword">proc</span> <a href="#trigger%2CListener"><span class="Identifier">trigger</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="listener.html#Listener"><span class="Identifier">Listener</span></a><span class="Other">)</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">Exception</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">RootEffect</span><span class="Other">]</span><span class="Other">,</span>
+  <dt><pre><span class="Keyword">proc</span> <a href="#trigger%2CListener"><span class="Identifier">trigger</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="listener.html#Listener"><span class="Identifier">Listener</span></a><span class="Other">)</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">gcsafe</span><span class="Other">,</span> <span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">Exception</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">RootEffect</span><span class="Other">]</span><span class="Other">,</span>
                                <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+  <dd>
+    
+    
+    
+  </dd>
+</div>
+
+</div>
+<div id="triggered-procs-all">
+  <div id="triggered,Listener">
+  <dt><pre><span class="Keyword">proc</span> <a href="#triggered%2CListener"><span class="Identifier">triggered</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="listener.html#Listener"><span class="Identifier">Listener</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
   <dd>
     
     
@@ -272,7 +272,7 @@
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2024-05-01 10:50:39 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2024-05-02 18:22:14 UTC</small>
       </div>
     </div>
   </div>
