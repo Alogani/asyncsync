@@ -13,45 +13,43 @@ type
 
 proc clean*[T](fut: Future[T])
 
-
-proc new*(T: type Event): T
-proc wait*(self: Event): Future[void]
-proc trigger*(self: Event)
-proc isTriggered*(self: Event): bool
-proc clear*(self: Event)
-proc addCallback*(self: Event; cb: proc () {.closure, gcsafe.}) {.borrow.}
-proc clearCallbacks*(self: Event) {.borrow.}
 converter toBool*(self: Event): bool
+converter toFut*(self: Event): Future[void]
+proc clear*(self: Event)
+proc new*(T: type Event): T
+proc trigger*(self: Event)
+proc triggered*(self: Event): bool
+proc wait*(self: Event): Future[void]
 
+
+template await*(self: Event) =
+    ## if called after trigger, ensure all preceding waiters have complete
+    await self.wait()
 
 proc clean*[T](fut: Future[T]) =
     fut.finished = false
     fut.error = nil
 
 
-proc new*(T: type Event): T =
-    T(newFuture[void]("Event"))
-
-proc wait*(self: Event): Future[void] =
-    Future[void](self)
-
-template await*(self: Event) =
-    ## if called after trigger, ensure all preceding waiters have complete
-    await self.wait()
-
-proc trigger*(self: Event) =
-    if not Future[void](self).finished:
-        Future[void](self).complete()
-
-proc isTriggered*(self: Event): bool =
+converter toBool*(self: Event): bool =
     Future[void](self).finished
+
+converter toFut*(self: Event): Future[void] =
+    self.wait()
 
 proc clear*(self: Event) =
     if Future[void](self).finished:
         Future[void](self).clean()
 
-converter toFut*(self: Event): Future[void] =
-    self.wait()
+proc new*(T: type Event): T =
+    T(newFuture[void]("Event"))
 
-converter toBool*(self: Event): bool =
+proc trigger*(self: Event) =
+    if not Future[void](self).finished:
+        Future[void](self).complete()
+
+proc triggered*(self: Event): bool =
     Future[void](self).finished
+
+proc wait*(self: Event): Future[void] =
+    Future[void](self)

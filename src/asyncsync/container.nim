@@ -4,14 +4,8 @@ import ./lock
 
 type Container*[T] = ref object
     ## A resource associated with a lock
-    resource: T
     lock: Lock
-
-
-proc new*[T](O: type Container[T], resource: T, lock: Lock = Lock.new()): O
-proc acquire*[T](self: Container[T]): Future[T]
-proc release*[T](self: Container[T])
-proc isLocked*[T](self: Container[T]): bool
+    resource: T
 
 
 template with*[T](self: Container[T], resource: out T, body: untyped): untyped =
@@ -27,8 +21,8 @@ proc acquire*[T](self: Container[T]): Future[T] {.async.} =
     await self.lock.acquire()
     self.resource
 
+proc locked*[T](self: Container[T]): bool =
+    self.lock.locked()
+
 proc release*[T](self: Container[T]) =
     self.lock.release()
-
-proc isLocked*[T](self: Container[T]): bool =
-    self.lock.isLocked()

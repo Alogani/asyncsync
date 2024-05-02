@@ -1,4 +1,4 @@
-import std/[asyncfutures, asyncdispatch]
+import std/[asyncdispatch, asyncfutures]
 
 proc any*(l: varargs[Future[void]]): Future[void] =
     for f in l:

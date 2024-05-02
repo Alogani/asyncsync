@@ -1,6 +1,6 @@
 # Package
 
-version       = "0.2.1"
+version       = "0.3.0"
 author        = "alogani"
 description   = "Async primitives working on std/asyncdispatch"
 license       = "MIT"
@@ -22,8 +22,8 @@ task genDocs, "Build the docs":
     exec("./htmldocs/importbuilder --build src " & bundlePath & " --discardExports")
     exec("nim doc --project --index:on --outdir:htmldocs " & bundlePath)
 
-task pushSuite, "Tests -> genDocs -> git push":
-    exec("nimble test")
+task genDocsAndPush, "genDocs -> git push":
     genDocsTask()
-    exec("git commit htmldocs/** -m 'Update docs'")
+    exec("git add htmldocs")
+    exec("git commit -m 'Update docs'")
     exec("git push")

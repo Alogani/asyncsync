@@ -1,37 +1,31 @@
-import std/[asyncdispatch]
 import ./event
+import std/[asyncdispatch]
 
 type Listener* = ref object
     ## An event triggered when a future complete
-    ev: Event
-    isListening: bool
+    event: Event
+    listening: bool
 
 
-proc new*(T: type Listener): T
-proc wait*(self: Listener): Future[void]
-proc isTriggered*(self: Listener): bool
+converter toBool*(self: Listener): bool
+converter toFut*(self: Listener): Future[void]
 proc clear*(self: Listener)
 proc listen*(self: Listener): Future[void]
 proc listen*(self: Listener, fut: Future[void])
-proc isListening*(self: Listener): bool
-converter toFut*(self: Listener): Future[void]
-converter toBool*(self: Listener): bool
+proc listening*(self: Listener): bool
+proc new*(T: type Listener): T
+proc trigger*(self: Listener) {.gcsafe.}
+proc triggered*(self: Listener): bool
+proc wait*(self: Listener): Future[void]
 
-proc new*(T: type Listener): T =
-    T(ev: Event.new())
+converter toBool*(self: Listener): bool =
+    self.event.triggered
 
-proc wait*(self: Listener): Future[void] =
-    self.ev.wait()
-
-proc trigger*(self: Listener) =
-    self.ev.trigger()
-    self.isListening = false
-
-proc isTriggered*(self: Listener): bool =
-    self.ev.isTriggered()
+converter toFut*(self: Listener): Future[void] =
+    self.event.wait()
 
 proc clear*(self: Listener) =
-    self.ev.clear()
+    self.event.clear()
 
 proc listen*(self: Listener): Future[void] =
     # Can't listen without creating a future
@@ -39,18 +33,25 @@ proc listen*(self: Listener): Future[void] =
     self.listen(result)
 
 proc listen*(self: Listener, fut: Future[void]) =
-    if self.isListening or self.isTriggered:
+    if self.listening or self.triggered:
         raise newException(IOError, "Can't listen if already listening or triggered")
-    self.isListening = true
+    self.listening = true
     fut.addCallback(proc() {.closure.} =
         self.trigger()
     )
 
-proc isListening*(self: Listener): bool =
-    self.isListening
+proc listening*(self: Listener): bool =
+    self.listening
 
-converter toFut*(self: Listener): Future[void] =
-    self.ev.wait()
+proc new*(T: type Listener): T =
+    T(event: Event.new())
 
-converter toBool*(self: Listener): bool =
-    self.ev.isTriggered
+proc trigger*(self: Listener) =
+    self.event.trigger()
+    self.listening = false
+
+proc triggered*(self: Listener): bool =
+    self.event.triggered()
+
+proc wait*(self: Listener): Future[void] =
+    self.event.wait()
