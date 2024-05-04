@@ -7,10 +7,6 @@ type Semaphore* = ref object of Lock
     counter: int
     lock: LockImpl
 
-method acquire*(self: Semaphore): Future[void]
-method locked*(self: Semaphore): bool
-proc new*(T: type Semaphore, value: int): T
-method release*(self: Semaphore) {.gcsafe.}
 
 method acquire*(self: Semaphore) {.async.} =
     if self.counter == 0:
