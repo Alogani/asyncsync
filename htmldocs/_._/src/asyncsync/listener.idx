@@ -1,13 +1,13 @@
 nimTitle	listener	_._/src/asyncsync/listener.html	module src/asyncsync/listener		0
 nim	Listener	_._/src/asyncsync/listener.html#Listener	type Listener		4
-nim	toBool	_._/src/asyncsync/listener.html#toBool.c,Listener	converter toBool(self: Listener): bool		10
-nim	toFut	_._/src/asyncsync/listener.html#toFut.c,Listener	converter toFut(self: Listener): Future[void]		11
-nim	clear	_._/src/asyncsync/listener.html#clear,Listener	proc clear(self: Listener)		12
-nim	listen	_._/src/asyncsync/listener.html#listen,Listener	proc listen(self: Listener): Future[void]		13
-nim	listen	_._/src/asyncsync/listener.html#listen,Listener,Future[void]	proc listen(self: Listener; fut: Future[void])		14
-nim	listening	_._/src/asyncsync/listener.html#listening,Listener	proc listening(self: Listener): bool		15
-nim	new	_._/src/asyncsync/listener.html#new,typeListener	proc new(T: type Listener): T:type		16
-nim	trigger	_._/src/asyncsync/listener.html#trigger,Listener	proc trigger(self: Listener)		17
-nim	triggered	_._/src/asyncsync/listener.html#triggered,Listener	proc triggered(self: Listener): bool		18
-nim	wait	_._/src/asyncsync/listener.html#wait,Listener	proc wait(self: Listener): Future[void]		19
-nimgrp	listen	_._/src/asyncsync/listener.html#listen-procs-all	proc		13
+nim	clear	_._/src/asyncsync/listener.html#clear,Listener	proc clear(self: Listener)		10
+nim	trigger	_._/src/asyncsync/listener.html#trigger,Listener	proc trigger(self: Listener)		13
+nim	triggered	_._/src/asyncsync/listener.html#triggered,Listener	proc triggered(self: Listener): bool		17
+nim	listen	_._/src/asyncsync/listener.html#listen,Listener,Future[void]	proc listen(self: Listener; fut: Future[void])		20
+nim	listen	_._/src/asyncsync/listener.html#listen,Listener	proc listen(self: Listener): Future[void]		28
+nim	listening	_._/src/asyncsync/listener.html#listening,Listener	proc listening(self: Listener): bool		33
+nim	new	_._/src/asyncsync/listener.html#new,typeListener	proc new(T: type Listener): T:type		36
+nim	wait	_._/src/asyncsync/listener.html#wait,Listener	proc wait(self: Listener): Future[void]		41
+nim	toBool	_._/src/asyncsync/listener.html#toBool.c,Listener	converter toBool(self: Listener): bool		44
+nim	toFut	_._/src/asyncsync/listener.html#toFut.c,Listener	converter toFut(self: Listener): Future[void]		47
+nimgrp	listen	_._/src/asyncsync/listener.html#listen-procs-all	proc		20

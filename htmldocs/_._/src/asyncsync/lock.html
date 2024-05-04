@@ -77,7 +77,6 @@
 </ul>
 <ul class="simple nested-toc-section">new
   <li><a class="reference" href="#new%2CtypeLock" title="new(T: type Lock): LockImpl">new(T: type Lock): LockImpl</a></li>
-<li><a class="reference" href="#new%2CtypeLockImpl" title="new(T: type LockImpl): T:type">new(T: type LockImpl): T:type</a></li>
 
 </ul>
 
@@ -90,20 +89,14 @@
     <ul class="simple simple-toc-section">
       <ul class="simple nested-toc-section">acquire
   <li><a class="reference" href="#acquire.e%2CLock" title="acquire(self: Lock): Future[void]">acquire(self: Lock): Future[void]</a></li>
-<li><a class="reference" href="#acquire.e%2CLockImpl" title="acquire(self: LockImpl): Future[void]">acquire(self: LockImpl): Future[void]</a></li>
-<li><a class="reference" href="#acquire.e%2CLockList" title="acquire(self: LockList): Future[void]">acquire(self: LockList): Future[void]</a></li>
 
 </ul>
 <ul class="simple nested-toc-section">locked
   <li><a class="reference" href="#locked.e%2CLock" title="locked(self: Lock): bool">locked(self: Lock): bool</a></li>
-<li><a class="reference" href="#locked.e%2CLockImpl" title="locked(self: LockImpl): bool">locked(self: LockImpl): bool</a></li>
-<li><a class="reference" href="#locked.e%2CLockList" title="locked(self: LockList): bool">locked(self: LockList): bool</a></li>
 
 </ul>
 <ul class="simple nested-toc-section">release
   <li><a class="reference" href="#release.e%2CLock" title="release(self: Lock)">release(self: Lock)</a></li>
-<li><a class="reference" href="#release.e%2CLockImpl" title="release(self: LockImpl)">release(self: LockImpl)</a></li>
-<li><a class="reference" href="#release.e%2CLockList" title="release(self: LockList)">release(self: LockList)</a></li>
 
 </ul>
 
@@ -128,7 +121,7 @@
 
   </div>
   <div class="nine columns" id="content">
-    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.0/src/asyncsync/lock.nim#L1" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.1/src/asyncsync/lock.nim#L1" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
 <a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/lock.nim#L1" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
     <div id="tocRoot"></div>
@@ -148,7 +141,7 @@
   <dd>
     
     
-    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.0/src/asyncsync/lock.nim#L7" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.1/src/asyncsync/lock.nim#L7" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
 <a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/lock.nim#L7" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
@@ -162,12 +155,16 @@
     <div id="acquire-procs-all">
   <div id="acquire,Lock,Future[void]">
   <dt><pre><span class="Keyword">proc</span> <a href="#acquire%2CLock%2CFuture%5Bvoid%5D"><span class="Identifier">acquire</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="lock.html#Lock"><span class="Identifier">Lock</span></a><span class="Other">;</span> <span class="Identifier">cancelFut</span><span class="Other">:</span> <span class="Identifier">Future</span><span class="Other">[</span><span class="Identifier">void</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">Future</span><span class="Other">[</span><span class="Identifier">bool</span><span class="Other">]</span> {.
-    <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">Exception</span><span class="Other">,</span> <span class="Identifier">ValueError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">RootEffect</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+    <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">stackTrace</span><span class="Other">:</span> <span class="DecNumber">false</span><span class="Other">,</span> <span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">Exception</span><span class="Other">,</span> <span class="Identifier">ValueError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">RootEffect</span><span class="Other">]</span><span class="Other">,</span>
+    <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
   <dd>
     
-    
-    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.0/src/asyncsync/lock.nim#L19" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/lock.nim#L19" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    If cancelFut completes first:<pre>- lock won't be acquired
+- false will be returned</pre>
+<p>Useful for timeouts using sleepAsync</p>
+
+    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.1/src/asyncsync/lock.nim#L70" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/lock.nim#L70" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -175,13 +172,12 @@
 </div>
 <div id="and-procs-all">
   <div id="and,Lock,Lock">
-  <dt><pre><span class="Keyword">proc</span> <a href="#and%2CLock%2CLock"><span class="Identifier">`and`</span></a><span class="Other">(</span><span class="Identifier">a</span><span class="Other">,</span> <span class="Identifier">b</span><span class="Other">:</span> <a href="lock.html#Lock"><span class="Identifier">Lock</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">LockList</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">Exception</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">RootEffect</span><span class="Other">]</span><span class="Other">,</span>
-                                   <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+  <dt><pre><span class="Keyword">proc</span> <a href="#and%2CLock%2CLock"><span class="Identifier">`and`</span></a><span class="Other">(</span><span class="Identifier">a</span><span class="Other">,</span> <span class="Identifier">b</span><span class="Other">:</span> <a href="lock.html#Lock"><span class="Identifier">Lock</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">LockList</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
   <dd>
     
     
-    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.0/src/asyncsync/lock.nim#L18" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/lock.nim#L18" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.1/src/asyncsync/lock.nim#L85" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/lock.nim#L85" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -193,8 +189,8 @@
   <dd>
     
     
-    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.0/src/asyncsync/lock.nim#L26" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/lock.nim#L26" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.1/src/asyncsync/lock.nim#L82" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/lock.nim#L82" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -206,18 +202,8 @@
   <dd>
     
     
-    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.0/src/asyncsync/lock.nim#L27" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/lock.nim#L27" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
-
-  </dd>
-</div>
-<div id="new,typeLockImpl">
-  <dt><pre><span class="Keyword">proc</span> <a href="#new%2CtypeLockImpl"><span class="Identifier">new</span></a><span class="Other">(</span><span class="Identifier">T</span><span class="Other">:</span> <span class="Keyword">type</span> <span class="Identifier">LockImpl</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">T:type</span></pre></dt>
-  <dd>
-    
-    
-    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.0/src/asyncsync/lock.nim#L28" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/lock.nim#L28" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.1/src/asyncsync/lock.nim#L91" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/lock.nim#L91" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -236,30 +222,8 @@
   <dd>
     
     
-    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.0/src/asyncsync/lock.nim#L20" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/lock.nim#L20" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
-
-  </dd>
-</div>
-<div id="acquire.e,LockImpl">
-  <dt><pre><span class="Keyword">method</span> <a href="#acquire.e%2CLockImpl"><span class="Identifier">acquire</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Identifier">LockImpl</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">Future</span><span class="Other">[</span><span class="Identifier">void</span><span class="Other">]</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">Exception</span><span class="Other">]</span><span class="Other">,</span>
-    <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">RootEffect</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
-  <dd>
-    
-    
-    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.0/src/asyncsync/lock.nim#L21" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/lock.nim#L21" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
-
-  </dd>
-</div>
-<div id="acquire.e,LockList">
-  <dt><pre><span class="Keyword">method</span> <a href="#acquire.e%2CLockList"><span class="Identifier">acquire</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Identifier">LockList</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">Future</span><span class="Other">[</span><span class="Identifier">void</span><span class="Other">]</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">Exception</span><span class="Other">]</span><span class="Other">,</span>
-    <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">RootEffect</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
-  <dd>
-    
-    
-    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.0/src/asyncsync/lock.nim#L22" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/lock.nim#L22" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.1/src/asyncsync/lock.nim#L33" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/lock.nim#L33" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -271,28 +235,8 @@
   <dd>
     
     
-    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.0/src/asyncsync/lock.nim#L23" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/lock.nim#L23" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
-
-  </dd>
-</div>
-<div id="locked.e,LockImpl">
-  <dt><pre><span class="Keyword">method</span> <a href="#locked.e%2CLockImpl"><span class="Identifier">locked</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Identifier">LockImpl</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
-  <dd>
-    
-    
-    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.0/src/asyncsync/lock.nim#L24" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/lock.nim#L24" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
-
-  </dd>
-</div>
-<div id="locked.e,LockList">
-  <dt><pre><span class="Keyword">method</span> <a href="#locked.e%2CLockList"><span class="Identifier">locked</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Identifier">LockList</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
-  <dd>
-    
-    
-    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.0/src/asyncsync/lock.nim#L25" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/lock.nim#L25" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.1/src/asyncsync/lock.nim#L49" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/lock.nim#L49" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -304,30 +248,8 @@
   <dd>
     
     
-    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.0/src/asyncsync/lock.nim#L29" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/lock.nim#L29" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
-
-  </dd>
-</div>
-<div id="release.e,LockImpl">
-  <dt><pre><span class="Keyword">method</span> <a href="#release.e%2CLockImpl"><span class="Identifier">release</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Identifier">LockImpl</span><span class="Other">)</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">gcsafe</span><span class="Other">,</span> <span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">Exception</span><span class="Other">]</span><span class="Other">,</span>
-                                 <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">RootEffect</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
-  <dd>
-    
-    
-    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.0/src/asyncsync/lock.nim#L30" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/lock.nim#L30" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
-
-  </dd>
-</div>
-<div id="release.e,LockList">
-  <dt><pre><span class="Keyword">method</span> <a href="#release.e%2CLockList"><span class="Identifier">release</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <span class="Identifier">LockList</span><span class="Other">)</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">gcsafe</span><span class="Other">,</span> <span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">Exception</span><span class="Other">]</span><span class="Other">,</span>
-                                 <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">RootEffect</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
-  <dd>
-    
-    
-    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.0/src/asyncsync/lock.nim#L31" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/lock.nim#L31" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.1/src/asyncsync/lock.nim#L58" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/lock.nim#L58" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -344,9 +266,9 @@
   <dt><pre><span class="Keyword">template</span> <a href="#withLock.t%2CLock%2Cuntyped"><span class="Identifier">withLock</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="lock.html#Lock"><span class="Identifier">Lock</span></a><span class="Other">;</span> <span class="Identifier">body</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
   <dd>
     
-    Be careful of issue #14714 that doesn't allow mixin waitFor and await on try/except
-    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.0/src/asyncsync/lock.nim#L34" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/lock.nim#L34" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    
+    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.1/src/asyncsync/lock.nim#L19" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/lock.nim#L19" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -355,8 +277,8 @@
   <dd>
     
     
-    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.0/src/asyncsync/lock.nim#L42" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/lock.nim#L42" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.1/src/asyncsync/lock.nim#L26" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/lock.nim#L26" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -372,7 +294,7 @@
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2024-05-04 06:41:23 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2024-05-04 09:04:08 UTC</small>
       </div>
     </div>
   </div>

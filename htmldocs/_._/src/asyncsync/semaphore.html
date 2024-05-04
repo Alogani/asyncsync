@@ -76,7 +76,7 @@
     <summary><a class="reference reference-toplevel" href="#14" id="64">Methods</a></summary>
     <ul class="simple simple-toc-section">
       <ul class="simple nested-toc-section">acquire
-  <li><a class="reference" href="#acquire.e%2CSemaphore" title="acquire(self: Semaphore): Future[void]">acquire(self: Semaphore): Future[void]</a></li>
+  <li><a class="reference" href="#acquire.e%2CSemaphore" title="acquire(self: Semaphore): owned(Future[void])">acquire(self: Semaphore): owned(Future[void])</a></li>
 
 </ul>
 <ul class="simple nested-toc-section">locked
@@ -96,7 +96,7 @@
 
   </div>
   <div class="nine columns" id="content">
-    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.0/src/asyncsync/semaphore.nim#L1" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.1/src/asyncsync/semaphore.nim#L1" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
 <a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/semaphore.nim#L1" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
     <div id="tocRoot"></div>
@@ -117,7 +117,7 @@
   <dd>
     
     Child of Lock
-    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.0/src/asyncsync/semaphore.nim#L5" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.1/src/asyncsync/semaphore.nim#L5" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
 <a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/semaphore.nim#L5" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
@@ -134,8 +134,8 @@
   <dd>
     
     
-    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.0/src/asyncsync/semaphore.nim#L12" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/semaphore.nim#L12" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.1/src/asyncsync/semaphore.nim#L19" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/semaphore.nim#L19" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -149,13 +149,13 @@
   <dl class="item">
     <div id="acquire-methods-all">
   <div id="acquire.e,Semaphore">
-  <dt><pre><span class="Keyword">method</span> <a href="#acquire.e%2CSemaphore"><span class="Identifier">acquire</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="semaphore.html#Semaphore"><span class="Identifier">Semaphore</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">Future</span><span class="Other">[</span><span class="Identifier">void</span><span class="Other">]</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">Exception</span><span class="Other">]</span><span class="Other">,</span>
-    <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">RootEffect</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+  <dt><pre><span class="Keyword">method</span> <a href="#acquire.e%2CSemaphore"><span class="Identifier">acquire</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="semaphore.html#Semaphore"><span class="Identifier">Semaphore</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">owned</span><span class="Other">(</span><span class="Identifier">Future</span><span class="Other">[</span><span class="Identifier">void</span><span class="Other">]</span><span class="Other">)</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">stackTrace</span><span class="Other">:</span> <span class="DecNumber">false</span><span class="Other">,</span>
+    <span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">Exception</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">RootEffect</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
   <dd>
     
     
-    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.0/src/asyncsync/semaphore.nim#L10" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/semaphore.nim#L10" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.1/src/asyncsync/semaphore.nim#L11" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/semaphore.nim#L11" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -167,8 +167,8 @@
   <dd>
     
     
-    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.0/src/asyncsync/semaphore.nim#L11" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/semaphore.nim#L11" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.1/src/asyncsync/semaphore.nim#L16" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/semaphore.nim#L16" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -176,13 +176,13 @@
 </div>
 <div id="release-methods-all">
   <div id="release.e,Semaphore">
-  <dt><pre><span class="Keyword">method</span> <a href="#release.e%2CSemaphore"><span class="Identifier">release</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="semaphore.html#Semaphore"><span class="Identifier">Semaphore</span></a><span class="Other">)</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">gcsafe</span><span class="Other">,</span> <span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">Exception</span><span class="Other">]</span><span class="Other">,</span>
-                                  <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">RootEffect</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+  <dt><pre><span class="Keyword">method</span> <a href="#release.e%2CSemaphore"><span class="Identifier">release</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="semaphore.html#Semaphore"><span class="Identifier">Semaphore</span></a><span class="Other">)</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">Exception</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">RootEffect</span><span class="Other">]</span><span class="Other">,</span>
+                                  <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
   <dd>
     
     
-    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.0/src/asyncsync/semaphore.nim#L13" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/semaphore.nim#L13" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.1/src/asyncsync/semaphore.nim#L22" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/semaphore.nim#L22" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -198,7 +198,7 @@
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2024-05-04 06:41:23 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2024-05-04 09:04:08 UTC</small>
       </div>
     </div>
   </div>
