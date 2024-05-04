@@ -18,9 +18,10 @@ task reinstall, "Reinstalls this package":
 
 task genDocs, "Build the docs":
     ## importBuilder source code: https://github.com/Alogani/shellcmd-examples/blob/main/src/importbuilder.nim
+    let githubUrl = "https://github.com/Alogani/asyncsync"
     let bundlePath = "htmldocs/" & projectName() & ".nim"
     exec("./htmldocs/importbuilder --build src " & bundlePath & " --discardExports")
-    exec("nim doc --project --index:on --outdir:htmldocs " & bundlePath)
+    exec("nim doc --git.url:" & githubUrl & " --git.commit:v" & $version & " --project --index:on --outdir:htmldocs " & bundlePath)
 
 task genDocsAndPush, "genDocs -> git push":
     genDocsTask()
