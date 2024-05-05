@@ -23,7 +23,8 @@ template withLock*(self: Lock, body: untyped): untyped =
         # Most hygienic way to allow break
         body
 
-template withLock*(self: Lock, cancelFut: Future[void], body: untyped): untyped =
+template withLock*(self: Lock, cancelFut: Future[void],
+        body: untyped): untyped =
     let hasLocked = await self.acquire(cancelFut)
     if hasLocked:
         for i in 0 .. 0:
@@ -68,9 +69,9 @@ method release(self: LockList) {.gcsafe.} =
     self.locked = false
 
 proc acquire*(self: Lock, cancelFut: Future[void]): Future[bool] {.async.} =
-    ## If cancelFut completes first: 
-    ##      - lock won't be acquired
-    ##      - false will be returned
+    ## If cancelFut completes first
+    ## - lock won't be acquired
+    ## - false will be returned
     ## Useful for timeouts using sleepAsync
     let acquireFut = self.acquire()
     result = await acquireFut.wait(cancelFut)
