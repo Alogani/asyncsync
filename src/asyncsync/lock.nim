@@ -73,7 +73,7 @@ proc acquire*(self: Lock, cancelFut: Future[void]): Future[bool] {.async.} =
     ##      - false will be returned
     ## Useful for timeouts using sleepAsync
     let acquireFut = self.acquire()
-    result = await checkWithCancel(acquireFut, cancelFut)
+    result = await acquireFut.wait(cancelFut)
     if not result:
         acquireFut.addCallback(proc() =
             self.release()

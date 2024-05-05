@@ -8,7 +8,7 @@ proc any*(l: varargs[Future[void]]): Future[void] =
             else:
                 result = f
 
-proc checkWithCancel*(fut: Future[void], cancelFut: Future[void]): Future[bool] {.async.} =
+proc wait*(fut: Future[void], cancelFut: Future[void]): Future[bool] {.async.} =
     ## Convenience methods for cancellation and timeouts
     ## cancelFut is always checked first and can be nil
     if cancelFut == nil:
