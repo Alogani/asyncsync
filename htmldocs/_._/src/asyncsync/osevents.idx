@@ -1,0 +1,12 @@
+nimTitle	osevents	_._/src/asyncsync/osevents.html	module src/asyncsync/osevents		0
+nim	ProcessEvent	_._/src/asyncsync/osevents.html#ProcessEvent	type ProcessEvent		6
+nim	ReadEvent	_._/src/asyncsync/osevents.html#ReadEvent	type ReadEvent		11
+nim	WriteEvent	_._/src/asyncsync/osevents.html#WriteEvent	type WriteEvent		16
+nim	new	_._/src/asyncsync/osevents.html#new,typeProcessEvent,int	proc new(T: type ProcessEvent; pid: int): T:type		21
+nim	new	_._/src/asyncsync/osevents.html#new,typeReadEvent,int	proc new(T: type ReadEvent; fd: int): T:type		24
+nim	new	_._/src/asyncsync/osevents.html#new,typeWriteEvent,int	proc new(T: type WriteEvent; fd: int): T:type		28
+nim	getFuture	_._/src/asyncsync/osevents.html#getFuture,ProcessEvent	proc getFuture(self: ProcessEvent): Future[void]		32
+nim	getFuture	_._/src/asyncsync/osevents.html#getFuture,ReadEvent	proc getFuture(self: ReadEvent): Future[void]		43
+nim	getFuture	_._/src/asyncsync/osevents.html#getFuture,WriteEvent	proc getFuture(self: WriteEvent): Future[void]		54
+nimgrp	new	_._/src/asyncsync/osevents.html#new-procs-all	proc		21
+nimgrp	getfuture	_._/src/asyncsync/osevents.html#getFuture-procs-all	proc		32

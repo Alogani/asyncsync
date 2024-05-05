@@ -1,6 +1,6 @@
 nimTitle	fututils	_._/src/asyncsync/exports/fututils.html	module src/asyncsync/exports/fututils		0
 nim	any	_._/src/asyncsync/exports/fututils.html#any,varargs[Future[void]]	proc any(l: varargs[Future[void]]): Future[void]		3
-nim	checkWithCancel	_._/src/asyncsync/exports/fututils.html#checkWithCancel,Future[void],Future[void]	proc checkWithCancel(fut: Future[void]; cancelFut: Future[void]): Future[bool]		11
+nim	wait	_._/src/asyncsync/exports/fututils.html#wait,Future[void],Future[void]	proc wait(fut: Future[void]; cancelFut: Future[void]): Future[bool]		11
 nim	then	_._/src/asyncsync/exports/fututils.html#then,Future[void],proc)	proc then[T2](fut: Future[void]; cb: proc (): Future[T2]): Future[T2]		26
 nim	then	_._/src/asyncsync/exports/fututils.html#then,Future[T1],proc(T1)	proc then[T1, T2](fut: Future[T1]; cb: proc (data: T1): Future[T2]): Future[T2]		31
 nim	then	_._/src/asyncsync/exports/fututils.html#then,Future[T1],proc)	proc then[T1, T2](fut: Future[T1]; cb: proc (): Future[T2]): Future[T2]		35

@@ -55,14 +55,14 @@
   <li><a class="reference" href="#any%2Cvarargs%5BFuture%5Bvoid%5D%5D" title="any(l: varargs[Future[void]]): Future[void]">any(l: varargs[Future[void]]): Future[void]</a></li>
 
 </ul>
-<ul class="simple nested-toc-section">checkWithCancel
-  <li><a class="reference" href="#checkWithCancel%2CFuture%5Bvoid%5D%2CFuture%5Bvoid%5D" title="checkWithCancel(fut: Future[void]; cancelFut: Future[void]): Future[bool]">checkWithCancel(fut: Future[void]; cancelFut: Future[void]): Future[bool]</a></li>
-
-</ul>
 <ul class="simple nested-toc-section">then
   <li><a class="reference" href="#then%2CFuture%5BT1%5D%2Cproc%29" title="then[T1, T2](fut: Future[T1]; cb: proc (): Future[T2]): Future[T2]">then[T1, T2](fut: Future[T1]; cb: proc (): Future[T2]): Future[T2]</a></li>
 <li><a class="reference" href="#then%2CFuture%5BT1%5D%2Cproc%28T1%29" title="then[T1, T2](fut: Future[T1]; cb: proc (data: T1): Future[T2]): Future[T2]">then[T1, T2](fut: Future[T1]; cb: proc (data: T1): Future[T2]): Future[T2]</a></li>
 <li><a class="reference" href="#then%2CFuture%5Bvoid%5D%2Cproc%29" title="then[T2](fut: Future[void]; cb: proc (): Future[T2]): Future[T2]">then[T2](fut: Future[void]; cb: proc (): Future[T2]): Future[T2]</a></li>
+
+</ul>
+<ul class="simple nested-toc-section">wait
+  <li><a class="reference" href="#wait%2CFuture%5Bvoid%5D%2CFuture%5Bvoid%5D" title="wait(fut: Future[void]; cancelFut: Future[void]): Future[bool]">wait(fut: Future[void]; cancelFut: Future[void]): Future[bool]</a></li>
 
 </ul>
 
@@ -74,7 +74,7 @@
 
   </div>
   <div class="nine columns" id="content">
-    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.1/src/asyncsync/exports/fututils.nim#L1" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+    <a href="https://github.com/Alogani/asyncsync/tree/v0.4.0/src/asyncsync/exports/fututils.nim#L1" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
 <a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/exports/fututils.nim#L1" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
     <div id="tocRoot"></div>
@@ -90,23 +90,8 @@
   <dd>
     
     
-    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.1/src/asyncsync/exports/fututils.nim#L3" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+    <a href="https://github.com/Alogani/asyncsync/tree/v0.4.0/src/asyncsync/exports/fututils.nim#L3" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
 <a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/exports/fututils.nim#L3" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
-
-  </dd>
-</div>
-
-</div>
-<div id="checkWithCancel-procs-all">
-  <div id="checkWithCancel,Future[void],Future[void]">
-  <dt><pre><span class="Keyword">proc</span> <a href="#checkWithCancel%2CFuture%5Bvoid%5D%2CFuture%5Bvoid%5D"><span class="Identifier">checkWithCancel</span></a><span class="Other">(</span><span class="Identifier">fut</span><span class="Other">:</span> <span class="Identifier">Future</span><span class="Other">[</span><span class="Identifier">void</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">cancelFut</span><span class="Other">:</span> <span class="Identifier">Future</span><span class="Other">[</span><span class="Identifier">void</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">Future</span><span class="Other">[</span><span class="Identifier">bool</span><span class="Other">]</span> {.
-    <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">stackTrace</span><span class="Other">:</span> <span class="DecNumber">false</span><span class="Other">,</span> <span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">Exception</span><span class="Other">,</span> <span class="Identifier">ValueError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">RootEffect</span><span class="Other">]</span><span class="Other">,</span>
-    <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
-  <dd>
-    
-    Convenience methods for cancellation and timeouts cancelFut is always checked first and can be nil
-    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.1/src/asyncsync/exports/fututils.nim#L11" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/exports/fututils.nim#L11" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -119,7 +104,7 @@
   <dd>
     
     Add callback in a synchronous way (awaitable)
-    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.1/src/asyncsync/exports/fututils.nim#L35" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+    <a href="https://github.com/Alogani/asyncsync/tree/v0.4.0/src/asyncsync/exports/fututils.nim#L35" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
 <a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/exports/fututils.nim#L35" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
@@ -130,7 +115,7 @@
   <dd>
     
     Add callback in a synchronous way (awaitable)
-    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.1/src/asyncsync/exports/fututils.nim#L31" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+    <a href="https://github.com/Alogani/asyncsync/tree/v0.4.0/src/asyncsync/exports/fututils.nim#L31" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
 <a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/exports/fututils.nim#L31" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
@@ -141,8 +126,23 @@
   <dd>
     
     Add callback in a synchronous way (awaitable)
-    <a href="https://github.com/Alogani/asyncsync/tree/v0.3.1/src/asyncsync/exports/fututils.nim#L26" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+    <a href="https://github.com/Alogani/asyncsync/tree/v0.4.0/src/asyncsync/exports/fututils.nim#L26" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
 <a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/exports/fututils.nim#L26" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+
+  </dd>
+</div>
+
+</div>
+<div id="wait-procs-all">
+  <div id="wait,Future[void],Future[void]">
+  <dt><pre><span class="Keyword">proc</span> <a href="#wait%2CFuture%5Bvoid%5D%2CFuture%5Bvoid%5D"><span class="Identifier">wait</span></a><span class="Other">(</span><span class="Identifier">fut</span><span class="Other">:</span> <span class="Identifier">Future</span><span class="Other">[</span><span class="Identifier">void</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">cancelFut</span><span class="Other">:</span> <span class="Identifier">Future</span><span class="Other">[</span><span class="Identifier">void</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">Future</span><span class="Other">[</span><span class="Identifier">bool</span><span class="Other">]</span> {.
+    <span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">stackTrace</span><span class="Other">:</span> <span class="DecNumber">false</span><span class="Other">,</span> <span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">Exception</span><span class="Other">,</span> <span class="Identifier">ValueError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">RootEffect</span><span class="Other">]</span><span class="Other">,</span>
+    <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+  <dd>
+    
+    Convenience methods for cancellation and timeouts cancelFut is always checked first and can be nil
+    <a href="https://github.com/Alogani/asyncsync/tree/v0.4.0/src/asyncsync/exports/fututils.nim#L11" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/exports/fututils.nim#L11" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -158,7 +158,7 @@
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2024-05-04 09:04:08 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2024-05-05 08:56:10 UTC</small>
       </div>
     </div>
   </div>
