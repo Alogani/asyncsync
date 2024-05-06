@@ -51,7 +51,9 @@
   <details open>
     <summary><a class="reference reference-toplevel" href="#7" id="57">Types</a></summary>
     <ul class="simple simple-toc-section">
-      <li><a class="reference" href="#Event" title="Event = distinct Future[void]">Event</a></li>
+      <li><a class="reference" href="#Event" title="Event = ref object
+  ## Waiters wakening can be unordered (According to asyncdispatch doc: in the order of await macro call)
+  ## For ordered events, cleaner method is to use in combination with a lock">Event</a></li>
 
     </ul>
   </details>
@@ -68,6 +70,10 @@
   <li><a class="reference" href="#clear%2CEvent" title="clear(self: Event)">clear(self: Event)</a></li>
 
 </ul>
+<ul class="simple nested-toc-section">consume
+  <li><a class="reference" href="#consume%2CEvent" title="consume(self: Event)">consume(self: Event)</a></li>
+
+</ul>
 <ul class="simple nested-toc-section">new
   <li><a class="reference" href="#new%2CtypeEvent" title="new(T: type Event): T:type">new(T: type Event): T:type</a></li>
 
@@ -78,10 +84,6 @@
 </ul>
 <ul class="simple nested-toc-section">triggered
   <li><a class="reference" href="#triggered%2CEvent" title="triggered(self: Event): bool">triggered(self: Event): bool</a></li>
-
-</ul>
-<ul class="simple nested-toc-section">wait
-  <li><a class="reference" href="#wait%2CEvent" title="wait(self: Event): Future[void]">wait(self: Event): Future[void]</a></li>
 
 </ul>
 
@@ -121,7 +123,7 @@
 
   </div>
   <div class="nine columns" id="content">
-    <a href="https://github.com/Alogani/asyncsync/tree/v0.4.0/src/asyncsync/event.nim#L1" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+    <a href="https://github.com/Alogani/asyncsync/tree/v0.5.0/src/asyncsync/event.nim#L1" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
 <a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/event.nim#L1" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
     <div id="tocRoot"></div>
@@ -131,11 +133,14 @@
   <h1><a class="toc-backref" href="#7">Types</a></h1>
   <dl class="item">
     <div id="Event">
-  <dt><pre><a href="event.html#Event"><span class="Identifier">Event</span></a> <span class="Other">=</span> <span class="Keyword">distinct</span> <span class="Identifier">Future</span><span class="Other">[</span><span class="Identifier">void</span><span class="Other">]</span></pre></dt>
+  <dt><pre><a href="event.html#Event"><span class="Identifier">Event</span></a> <span class="Other">=</span> <span class="Keyword">ref</span> <span class="Keyword">object</span>
+  <span class="Comment">## Waiters wakening can be unordered (According to asyncdispatch doc: in the order of await macro call)</span>
+  <span class="Comment">## For ordered events, cleaner method is to use in combination with a lock</span>
+  </pre></dt>
   <dd>
     
-    Waiters wakening can be unordered (According to asyncdispatch doc: in the order of await macro call) For ordered events, cleaner method is to use in combination with a lock
-    <a href="https://github.com/Alogani/asyncsync/tree/v0.4.0/src/asyncsync/event.nim#L9" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+    
+    <a href="https://github.com/Alogani/asyncsync/tree/v0.5.0/src/asyncsync/event.nim#L9" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
 <a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/event.nim#L9" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
@@ -152,8 +157,8 @@
   <dd>
     
     
-    <a href="https://github.com/Alogani/asyncsync/tree/v0.4.0/src/asyncsync/event.nim#L18" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/event.nim#L18" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Alogani/asyncsync/tree/v0.5.0/src/asyncsync/event.nim#L19" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/event.nim#L19" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -164,9 +169,22 @@
   <dt><pre><span class="Keyword">proc</span> <a href="#clear%2CEvent"><span class="Identifier">clear</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="event.html#Event"><span class="Identifier">Event</span></a><span class="Other">)</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
   <dd>
     
+    Clear guaranties that all waiters will be triggered, but no that have all waiters are already triggered To be sure that all waiters will be triggered, await the event yourself, and you will be the last one
+    <a href="https://github.com/Alogani/asyncsync/tree/v0.5.0/src/asyncsync/event.nim#L23" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/event.nim#L23" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+
+  </dd>
+</div>
+
+</div>
+<div id="consume-procs-all">
+  <div id="consume,Event">
+  <dt><pre><span class="Keyword">proc</span> <a href="#consume%2CEvent"><span class="Identifier">consume</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="event.html#Event"><span class="Identifier">Event</span></a><span class="Other">)</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+  <dd>
     
-    <a href="https://github.com/Alogani/asyncsync/tree/v0.4.0/src/asyncsync/event.nim#L22" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/event.nim#L22" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    Waiters after this call will be triggered. However it should be called immediatly without using another await (or then), or waiters will certainly will be all triggered
+    <a href="https://github.com/Alogani/asyncsync/tree/v0.5.0/src/asyncsync/event.nim#L28" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/event.nim#L28" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -178,8 +196,8 @@
   <dd>
     
     
-    <a href="https://github.com/Alogani/asyncsync/tree/v0.4.0/src/asyncsync/event.nim#L26" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/event.nim#L26" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Alogani/asyncsync/tree/v0.5.0/src/asyncsync/event.nim#L34" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/event.nim#L34" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -191,8 +209,8 @@
   <dd>
     
     
-    <a href="https://github.com/Alogani/asyncsync/tree/v0.4.0/src/asyncsync/event.nim#L29" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/event.nim#L29" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Alogani/asyncsync/tree/v0.5.0/src/asyncsync/event.nim#L37" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/event.nim#L37" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -204,21 +222,8 @@
   <dd>
     
     
-    <a href="https://github.com/Alogani/asyncsync/tree/v0.4.0/src/asyncsync/event.nim#L33" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/event.nim#L33" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
-
-  </dd>
-</div>
-
-</div>
-<div id="wait-procs-all">
-  <div id="wait,Event">
-  <dt><pre><span class="Keyword">proc</span> <a href="#wait%2CEvent"><span class="Identifier">wait</span></a><span class="Other">(</span><span class="Identifier">self</span><span class="Other">:</span> <a href="event.html#Event"><span class="Identifier">Event</span></a><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">Future</span><span class="Other">[</span><span class="Identifier">void</span><span class="Other">]</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
-  <dd>
-    
-    
-    <a href="https://github.com/Alogani/asyncsync/tree/v0.4.0/src/asyncsync/event.nim#L36" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/event.nim#L36" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Alogani/asyncsync/tree/v0.5.0/src/asyncsync/event.nim#L41" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/event.nim#L41" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -236,8 +241,8 @@
   <dd>
     
     
-    <a href="https://github.com/Alogani/asyncsync/tree/v0.4.0/src/asyncsync/event.nim#L39" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/event.nim#L39" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Alogani/asyncsync/tree/v0.5.0/src/asyncsync/event.nim#L44" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/event.nim#L44" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -249,8 +254,8 @@
   <dd>
     
     
-    <a href="https://github.com/Alogani/asyncsync/tree/v0.4.0/src/asyncsync/event.nim#L42" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/event.nim#L42" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Alogani/asyncsync/tree/v0.5.0/src/asyncsync/event.nim#L47" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/event.nim#L47" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -268,8 +273,8 @@
   <dd>
     
     if called after trigger, ensure all preceding waiters have complete
-    <a href="https://github.com/Alogani/asyncsync/tree/v0.4.0/src/asyncsync/event.nim#L14" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
-<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/event.nim#L14" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
+    <a href="https://github.com/Alogani/asyncsync/tree/v0.5.0/src/asyncsync/event.nim#L15" class="link-seesrc" target="_blank">Source</a>&nbsp;&nbsp;
+<a href="https://github.com/Alogani/asyncsync/edit/devel/src/asyncsync/event.nim#L15" class="link-seesrc" target="_blank" >Edit</a>&nbsp;&nbsp;
 
   </dd>
 </div>
@@ -285,7 +290,7 @@
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2024-05-05 08:56:10 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2024-05-06 17:23:39 UTC</small>
       </div>
     </div>
   </div>

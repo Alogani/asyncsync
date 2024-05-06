@@ -2,11 +2,11 @@ nimTitle	lock	_._/src/asyncsync/lock.html	module src/asyncsync/lock		0
 nim	Lock	_._/src/asyncsync/lock.html#Lock	type Lock		7
 nim	withLock	_._/src/asyncsync/lock.html#withLock.t,Lock,untyped	template withLock(self: Lock; body: untyped): untyped		19
 nim	withLock	_._/src/asyncsync/lock.html#withLock.t,Lock,Future[void],untyped	template withLock(self: Lock; cancelFut: Future[void]; body: untyped): untyped		26
-nim	acquire	_._/src/asyncsync/lock.html#acquire.e,Lock	method acquire(self: Lock): Future[void]		33
-nim	locked	_._/src/asyncsync/lock.html#locked.e,Lock	method locked(self: Lock): bool		49
-nim	release	_._/src/asyncsync/lock.html#release.e,Lock	method release(self: Lock)		58
-nim	acquire	_._/src/asyncsync/lock.html#acquire,Lock,Future[void]	proc acquire(self: Lock; cancelFut: Future[void]): Future[bool]		70
-nim	merge	_._/src/asyncsync/lock.html#merge,varargs[Lock]	proc merge(locks: varargs[Lock]): LockList		82
-nim	`and`	_._/src/asyncsync/lock.html#and,Lock,Lock	proc `and`(a, b: Lock): LockList		85
-nim	new	_._/src/asyncsync/lock.html#new,typeLock	proc new(T: type Lock): LockImpl		91
+nim	acquire	_._/src/asyncsync/lock.html#acquire.e,Lock	method acquire(self: Lock): Future[void]		34
+nim	locked	_._/src/asyncsync/lock.html#locked.e,Lock	method locked(self: Lock): bool		50
+nim	release	_._/src/asyncsync/lock.html#release.e,Lock	method release(self: Lock)		59
+nim	acquire	_._/src/asyncsync/lock.html#acquire,Lock,Future[void]	proc acquire(self: Lock; cancelFut: Future[void]): Future[bool]		71
+nim	merge	_._/src/asyncsync/lock.html#merge,varargs[Lock]	proc merge(locks: varargs[Lock]): LockList		83
+nim	`and`	_._/src/asyncsync/lock.html#and,Lock,Lock	proc `and`(a, b: Lock): LockList		86
+nim	new	_._/src/asyncsync/lock.html#new,typeLock	proc new(T: type Lock): LockImpl		92
 nimgrp	withlock	_._/src/asyncsync/lock.html#withLock-templates-all	template		19
